@@ -1,17 +1,23 @@
 import { useState } from "react";
 
-interface AddJobFormProps {
-  setAddFormIsOpen: (value: boolean) => void;
+import { JobPost } from "../../Types/types";
+
+interface EditJobFormProps {
+  setEditFormIsOpen: (value: boolean) => void;
+  jobPost: JobPost;
 }
 
-const AddJobForm: React.FC<AddJobFormProps> = ({ setAddFormIsOpen }) => {
-  const [jobTitle, setJobTitle] = useState("");
-  const [company, setCompany] = useState("");
-  const [vacancies, setVacancies] = useState("");
-  const [location, setLocation] = useState("");
-  const [experience, setExperience] = useState("");
-  const [salary, setSalary] = useState("");
-  const [jd, setJd] = useState("");
+const EditJobForm: React.FC<EditJobFormProps> = ({
+  setEditFormIsOpen,
+  jobPost,
+}) => {
+  const [jobTitle, setJobTitle] = useState(jobPost.title);
+  const [company, setCompany] = useState(jobPost.company);
+  const [vacancies, setVacancies] = useState(jobPost.vacancies);
+  const [location, setLocation] = useState(jobPost.location);
+  const [experience, setExperience] = useState(jobPost.experience);
+  const [salary, setSalary] = useState(jobPost.salary);
+  const [jd, setJd] = useState(jobPost.jd);
 
   const handleFormSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -31,14 +37,14 @@ const AddJobForm: React.FC<AddJobFormProps> = ({ setAddFormIsOpen }) => {
         " " +
         jd
     );
-    setAddFormIsOpen(false);
+    setEditFormIsOpen(false);
   };
 
   return (
     <div
       className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50"
       onClick={(e) => {
-        if (e.target === e.currentTarget) setAddFormIsOpen(false);
+        if (e.target === e.currentTarget) setEditFormIsOpen(false);
       }}
     >
       <div className="relative p-4 w-full max-w-md  max-h-[90vh] overflow-y-auto bg-white rounded-lg shadow-sm dark:bg-gray-700 modal-scroll">
@@ -50,7 +56,7 @@ const AddJobForm: React.FC<AddJobFormProps> = ({ setAddFormIsOpen }) => {
           <button
             type="button"
             onClick={() => {
-              setAddFormIsOpen(false);
+              setEditFormIsOpen(false);
             }}
             className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
           >
@@ -84,6 +90,7 @@ const AddJobForm: React.FC<AddJobFormProps> = ({ setAddFormIsOpen }) => {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
                 placeholder="Write Job title"
                 required
+                value={jobTitle}
                 onChange={(e) => setJobTitle(e.target.value)}
               />
             </div>
@@ -96,6 +103,7 @@ const AddJobForm: React.FC<AddJobFormProps> = ({ setAddFormIsOpen }) => {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
                 placeholder="Type Company name"
                 required
+                value={company}
                 onChange={(e) => setCompany(e.target.value)}
               />
             </div>
@@ -109,6 +117,7 @@ const AddJobForm: React.FC<AddJobFormProps> = ({ setAddFormIsOpen }) => {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
                 placeholder="Ex: ₹6,00,000 - ₹9,00,000"
                 required
+                value={salary}
                 onChange={(e) => setSalary(e.target.value)}
               />
             </div>
@@ -121,6 +130,7 @@ const AddJobForm: React.FC<AddJobFormProps> = ({ setAddFormIsOpen }) => {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
                 placeholder="Write job location here"
                 required
+                value={location}
                 onChange={(e) => setLocation(e.target.value)}
               />
             </div>
@@ -133,6 +143,7 @@ const AddJobForm: React.FC<AddJobFormProps> = ({ setAddFormIsOpen }) => {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
                 placeholder="Ex: 2-3 years"
                 required
+                value={experience}
                 onChange={(e) => setExperience(e.target.value)}
               />
             </div>
@@ -145,7 +156,8 @@ const AddJobForm: React.FC<AddJobFormProps> = ({ setAddFormIsOpen }) => {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
                 placeholder="Type total vacancies"
                 required
-                onChange={(e) => setVacancies(e.target.value)}
+                value={vacancies}
+                onChange={(e) => setVacancies(parseInt(e.target.value))}
               />
             </div>
 
@@ -158,6 +170,7 @@ const AddJobForm: React.FC<AddJobFormProps> = ({ setAddFormIsOpen }) => {
                 className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
                 placeholder="Write Job description here"
                 required
+                value={jd}
                 onChange={(e) => setJd(e.target.value)}
               />
             </div>
@@ -179,7 +192,7 @@ const AddJobForm: React.FC<AddJobFormProps> = ({ setAddFormIsOpen }) => {
                 clipRule="evenodd"
               />
             </svg>
-            Add job
+            Save Changes
           </button>
         </form>
       </div>
@@ -187,4 +200,4 @@ const AddJobForm: React.FC<AddJobFormProps> = ({ setAddFormIsOpen }) => {
   );
 };
 
-export default AddJobForm;
+export default EditJobForm;

@@ -64,3 +64,10 @@
     width: 100%;
 }
 
+.jp__dashboard__buttons__delete_job_post {
+    display: flex;
+    justify-content: flex-end; 
+    float: right;
+    font-family: var(--font-family);
+    width: 100%;
+}
