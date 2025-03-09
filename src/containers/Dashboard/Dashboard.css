@@ -1,0 +1,66 @@
+.jp__dashboard__heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.jp__dashboard__heading h1{
+    font-weight: bold;
+    font-size: 3rem;
+    font-family: var(--font-family);
+    color: #0d0331;
+}
+
+.jp__dashboard__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100vh;
+    margin-left: 10px;
+}
+
+.jp__dashboard__table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.jp__dashboard__buttons {
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+    
+}
+
+.jp__dashboard__buttons__add_job_post {
+    display: flex;
+    justify-content: flex-end; 
+    float: right;
+    font-family: var(--font-family);
+    width: 100%;
+}
+
+.jp__dashboard__buttons button{
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center; 
+    float: right;
+    font-family: var(--font-family);
+    cursor: pointer;
+}
+
+.jp__dashboard__buttons__export_job_post {
+    display: flex;
+    justify-content: flex-end; 
+    float: right;
+    font-family: var(--font-family);
+    width: 100%;
+}
+

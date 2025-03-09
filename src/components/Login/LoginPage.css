@@ -1,0 +1,109 @@
+.jp__login_page__container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #0d0331;
+}
+
+.jp__login_page {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* height: 100vh; */
+    width: 80%; /* Adjust size to make it smaller */
+    max-width: 800px; /* Set a max-width to prevent excessive zoom */
+    margin: 0 auto; /* Center it horizontally */
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+.jp__login_page__content {
+    display:flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.jp__login_page__content__form {
+    display:flex;
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.jp__login_page__content__form h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-family);
+}
+
+.jp__login_page__content__form label {
+    font-size: 1rem;
+    font-family: var(--font-family);
+}
+
+.jp__login_page__email-input{
+    margin-bottom: 1rem;
+    font-family: var(--font-family);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+
+
+.jp__login_page__password-input{
+    margin-bottom: 1rem;
+    font-family: var(--font-family);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+.jp__login_page__login-button{
+    display: flex;
+    margin-bottom: 1rem;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-family);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0.5rem;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+}
+
+.jp__login_page__login-button:hover{
+    background-color: #0056b3;
+}
+
+.jp__login_page__content__image {
+    padding: 1rem;
+}
+
+.jp__login_page h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-family);
+}
+
+.jp__login_page h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-family: var(--font-family);
+}
+
+input{
+    outline: none;
+}
